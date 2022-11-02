@@ -2,7 +2,12 @@ const csvToJson = require("csvtojson");
 const fs = require("fs");
 const crypto = require("crypto");
 const csvFilePath = "./data.csv";
+const dotenv = require("dotenv");
 const jsonToCsv = require("csvjson");
+
+dotenv.config();
+
+const fileNameKey = process.env.FILENAMEKEY;
 
 csvToJson()
   .fromFile(csvFilePath)
@@ -12,14 +17,15 @@ csvToJson()
         .createHash("sha256")
         .update(JSON.stringify(obj))
         .digest("hex");
-      obj.hash = hash;
+      obj["Output"] = `${obj[fileNameKey]}.${hash}.csv`;
       return obj;
     });
-    console.log(hashArray);
+
 
     const csv = jsonToCsv.toCSV(hashArray, {
       headers: "key",
     });
 
-    fs.writeFileSync("output.csv", csv);
+    fs.writeFileSync("output.csv", csv,"utf-8");
+
   });
