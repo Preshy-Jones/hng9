@@ -22,7 +22,8 @@
     "csvjson": "^5.1.0",
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
