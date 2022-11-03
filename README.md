@@ -4,7 +4,7 @@
 
 2. Install the latest version of [Node.js](https://nodejs.org/en/download/).
 
-3. Run "npm install" on the terminal of the cloned repo, this will install the packages needed to run use this script.
+3. Run "npm install" on the terminal of the cloned repo, this will install the packages needed to use this script.
 
 4. Place your input csv file in the folder of the cloned repo and rename it to data.csv
 
