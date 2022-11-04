@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
+// Create an express api endpoint that returns the following in json response:  { "slackUsername**": "Precious Adedibu", "backend": true, "age": 24, "bio": "I just want to build cool software and retire on a beach watching the sunset everyday." }
+app.use(express_1.default.urlencoded({ extended: false }));
+app.use(express_1.default.json());
 var OperationType;
 (function (OperationType) {
     OperationType["MULTIPLICATION"] = "multiplication";
@@ -21,9 +24,7 @@ app.get("/", (req, res) => {
 });
 app.post("/", (req, res) => {
     let result;
-    console.log(req.body);
     let { operation_type, x, y } = req.body;
-    console.log(operation_type);
     if (operation_type === OperationType.MULTIPLICATION) {
         result = x * y;
     }

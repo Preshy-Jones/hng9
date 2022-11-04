@@ -30,11 +30,11 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/", (req: Request, res: Response) => {
   let result;
 
-  console.log(req.body);
+  
 
   let { operation_type, x, y } = req.body;
 
-  console.log(operation_type);
+  
 
   if (operation_type === OperationType.MULTIPLICATION) {
     result = x * y;
